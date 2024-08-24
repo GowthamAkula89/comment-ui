@@ -1,0 +1,43 @@
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+.header.active{
+    justify-content: flex-end;
+}
+.sign-in-btn{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 5px;
+}
+.google-img{
+    width: 35px;
+    height: 35px;
+}
+.user-data{
+    display: flex;
+    height: 50px;
+    align-items: center;
+    gap: 15px;
+}
+.user-img{
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+}
+.user-name{
+    font-size: 19px;
+    font-weight: 400;
+    text-align: left;
+}
+.btn{
+    font-size: 16.5px;
+    font-weight: 600;
+    outline: none;
+    border: 1px solid white;
+    background-color: white;
+    cursor: pointer;
+}
