@@ -1,0 +1,99 @@
+.main {
+  margin: 25px;
+  box-shadow: 0px 0px 4px 5px #0000001A;
+  height: 100vh;
+  border-radius: 15px;
+  padding: 15px;
+  overflow-y: auto;
+}
+
+.comment-input-section {
+  margin-bottom: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+.comment-input {
+  flex-grow: 1;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+
+.comment-submit-btn {
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+}
+
+.comment-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #f1f1f1;
+  border-radius: 10px;
+}
+
+.user-data {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.user-img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.user-name {
+  font-weight: bold;
+}
+
+.comment-text {
+  font-size: 16px;
+  color: #747373;
+}
+  
+.replies{
+  padding-left: 45px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.emoji-picker-btn{
+  position: relative;
+}
+.reply{
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.emoji-picker {
+  position: absolute;
+  z-index: 1000;
+  background-color: white;
+  border: 1px solid #ddd;
+  padding: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  gap: 5px;
+}
+  
+.show-more-less-btn{
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  padding: 5px;
+  cursor: pointer;
+  color: green;
+}
