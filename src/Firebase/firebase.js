@@ -10,6 +10,7 @@ import { getAuth } from "firebase/auth";
 const firebaseConfig = {
   apiKey: "AIzaSyDdpJv68dX9ZsaAu8qSsRLVzteLMB1hsWs",
   authDomain: "alter-f3ed6.firebaseapp.com",
+  databaseURL: "https://alter-f3ed6-default-rtdb.firebaseio.com",
   projectId: "alter-f3ed6",
   storageBucket: "alter-f3ed6.appspot.com",
   messagingSenderId: "745212942732",
