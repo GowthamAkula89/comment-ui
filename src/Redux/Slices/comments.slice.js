@@ -2,14 +2,18 @@ import { createSlice } from "@reduxjs/toolkit";
 const commentsSlice = createSlice({
     name :"comments",
     initialState : {
-        comments : {}
+        comments : {},
+        activeSort : "popular"
     },
     reducers:{
         setComments : (state, action) => {
             state.comments = action.payload
+        },
+        setActiveSort : (state, action) => {
+            state.activeSort = action.payload
         }
     }
 })
 
-export const { setComments } = commentsSlice.actions
+export const { setComments, setActiveSort } = commentsSlice.actions
 export default commentsSlice.reducer
