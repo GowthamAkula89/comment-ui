@@ -41,9 +41,14 @@ const Main = () => {
       return;
     }
     const resData = await addComments(currentUser, null, newComment);
-    setNewComment("");
-    dispatch(setComments(resData));
-    enqueueSnackbar("Comment added Successfully", { variant: "success" });
+    if (resData) {
+      dispatch(setComments(resData));
+      setNewComment("");
+      enqueueSnackbar("Comment added Successfully", { variant: "success" });
+    } else {
+      enqueueSnackbar("Please provide comment", { variant: "warning" });
+    }
+    
   };
 
   return (
@@ -86,7 +91,7 @@ const CommentText = ({ text }) => {
 
   const toggleExpanded = () => setIsExpanded(!isExpanded);
 
-  const maxCharacterCount = 300;
+  const maxCharacterCount = 250;
   const shouldTruncate = text.length > maxCharacterCount;
 
   return (

@@ -1,85 +1,121 @@
 .comment-input-field{
-    position: relative;
+  position: relative;
 }
 .input-field{
-    height: 195px;
-    border: 2px solid gray;
-    border-radius: 15px;
-    width: 90%;
-    padding: 25px;
-    outline: none;
+  height: 195px;
+  border: 2px solid gray;
+  border-radius: 15px;
+  width: 90%;
+  padding: 25px;
+  outline: none;
 }
 .input-field.bold{
-    font-weight: bold;
+  font-weight: bold;
 }
 .input-field.italic{
-    font-style: italic;
+  font-style: italic;
 }
 .input-field.underline{
-    text-decoration: underline;
+  text-decoration: underline;
 }
 .input-actions{
-    position: absolute;
-    width: 92%;
-    z-index: 1;
-    left: 18px;
-    bottom: 35px;
+  position: absolute;
+  width: 92%;
+  z-index: 1;
+  left: 18px;
+  bottom: 35px;
 }
 .actions{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 .text-styles{
-    display: flex;
-    align-items: center;
-    gap: 15px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
 }
 .bold {
-    font-weight: bold;
-  }
-  
-  .italic {
-    font-style: italic;
-  }
-  
-  .underline {
-    text-decoration: underline;
-  }
+  font-weight: bold;
+}
 
-  .btns{
-    display: flex;
-    gap: 10px;
-  }
-  .send-btn{
-    background-color: #000000;
-    padding: 10px 15px;
-    color: #ffffff;
-    border-radius: 7px;
-    outline: none;
-    cursor: pointer;
-  }
-  .cancel-btn{
-    padding: 10px 15px;
-    border-radius: 7px;
-    outline: none;
-    cursor: pointer;
-    border: 1px solid gray;
-  }
-  .spinner {
-    width: 20px;
-    height: 20px;
-    border: 3px solid rgba(255, 255, 255, 0.3);
-    border-top: 3px solid white;
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
+.italic {
+  font-style: italic;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.btns{
+  display: flex;
+  gap: 10px;
+}
+.send-btn{
+  background-color: #000000;
+  padding: 10px 15px;
+  color: #ffffff;
+  border-radius: 7px;
+  outline: none;
+  cursor: pointer;
+}
+.cancel-btn{
+  padding: 10px 15px;
+  border-radius: 7px;
+  outline: none;
+  cursor: pointer;
+  border: 1px solid gray;
+}
+.textarea-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 90%;
+  height: 195px;
+  pointer-events: none;
+  color: transparent;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  z-index: 1;
+  overflow: hidden;
+  padding: 25px;
+}
+
+.suggestions-list {
+  position: absolute;
+  background: white;
+  border: 1px solid #ccc;
+  max-height: 150px;
+  overflow-y: auto;
+  z-index: 10;
+  margin-top: 5px;
+  border-radius: 5px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.suggestion-item {
+  padding: 8px;
+  cursor: pointer;
+}
+
+.suggestion-item:hover {
+  background-color: #f0f0f0;
+}
+
+.spinner {
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-top: 3px solid white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
 }
 
 @keyframes spin {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
+  0% {
+      transform: rotate(0deg);
+  }
+  100% {
+      transform: rotate(360deg);
+  }
 }
