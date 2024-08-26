@@ -3,7 +3,6 @@ import { app } from "../Firebase/firebase";
 
 const addComments = async (currentUser, parentCommentKey = null, newComment) => {
   if (!newComment.trim()) {
-    alert("Comment cannot be empty.");
     return;
   }
 
