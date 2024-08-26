@@ -10,10 +10,14 @@ export const doSignInWithEmailAndPassword = (email, password) => {
 };  
 
 export const doSignInWithGoogle = async () => {  
-    const provider = new GoogleAuthProvider();  
+  const provider = new GoogleAuthProvider();  
+  try {
     const result = await signInWithPopup(auth, provider);  
-    //result.user  
     return result;
+  } catch (error) {
+    console.error("Error during Google sign-in", error);
+    throw error; 
+  }
 };
 
 export const doSignOut = () => {  
