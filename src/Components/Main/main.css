@@ -5,7 +5,27 @@
   padding: 15px;
 
 }
+.sort-options {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+}
 
+.sort-options button {
+  background-color: #e0e0e0;
+  border: none;
+  padding: 10px 20px;
+  margin-right: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.sort-options button.active,
+.sort-options button:hover {
+  background-color: #6200ea;
+  color: #ffffff;
+}
 .comment-input-section {
   margin-bottom: 20px;
   display: flex;
