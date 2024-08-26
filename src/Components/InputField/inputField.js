@@ -55,7 +55,7 @@ const InputField = ({ commentKey, setIsCommentInputOpen }) => {
     }
 
     // Add logic to handle image uploading if necessary
-    const resData = await addComments(currentUser, commentKey, commentText);
+    const resData = await addComments(currentUser, commentKey, commentText, image);
     if (resData) {
       const filterData = sortComments(resData, activeSort);
       dispatch(setComments(filterData));
