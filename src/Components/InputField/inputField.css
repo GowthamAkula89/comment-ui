@@ -1,0 +1,85 @@
+.comment-input-field{
+    position: relative;
+}
+.input-field{
+    height: 195px;
+    border: 2px solid gray;
+    border-radius: 15px;
+    width: 90%;
+    padding: 25px;
+    outline: none;
+}
+.input-field.bold{
+    font-weight: bold;
+}
+.input-field.italic{
+    font-style: italic;
+}
+.input-field.underline{
+    text-decoration: underline;
+}
+.input-actions{
+    position: absolute;
+    width: 92%;
+    z-index: 1;
+    left: 18px;
+    bottom: 35px;
+}
+.actions{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.text-styles{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.bold {
+    font-weight: bold;
+  }
+  
+  .italic {
+    font-style: italic;
+  }
+  
+  .underline {
+    text-decoration: underline;
+  }
+
+  .btns{
+    display: flex;
+    gap: 10px;
+  }
+  .send-btn{
+    background-color: #000000;
+    padding: 10px 15px;
+    color: #ffffff;
+    border-radius: 7px;
+    outline: none;
+    cursor: pointer;
+  }
+  .cancel-btn{
+    padding: 10px 15px;
+    border-radius: 7px;
+    outline: none;
+    cursor: pointer;
+    border: 1px solid gray;
+  }
+  .spinner {
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-top: 3px solid white;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
