@@ -80,7 +80,13 @@
   overflow: hidden;
   padding: 25px;
 }
-
+.image-preview{
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  bottom: 106px;
+  left: 18px;
+}
 .suggestions-list {
   position: absolute;
   background: white;

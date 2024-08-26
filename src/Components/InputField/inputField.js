@@ -5,8 +5,10 @@ import { useAuth } from "../../Contexts/AuthContext/authContext";
 import addComments from "../../APIs/addComments";
 import { setComments } from "../../Redux/Slices/comments.slice";
 import { useSnackbar } from "notistack";
+import { sortComments } from "../../Utils/sortComments";
 
 const InputField = ({ commentKey, setIsCommentInputOpen }) => {
+  const activeSort = useSelector((state) => state.comments.activeSort);
   const { currentUser } = useAuth();
   const dispatch = useDispatch();
   const { enqueueSnackbar } = useSnackbar();
@@ -22,6 +24,8 @@ const InputField = ({ commentKey, setIsCommentInputOpen }) => {
   const textareaRef = useRef(null);
   const overlayRef = useRef(null);
 
+  const [image, setImage] = useState(null);
+
   const comments = useSelector((state) => state.comments.comments);
   const commentedUsers = Object.values(comments).map((comment) => ({
     id: comment.userId,
@@ -35,6 +39,7 @@ const InputField = ({ commentKey, setIsCommentInputOpen }) => {
           user.name.toLowerCase().includes(searchQuery.toLowerCase())
         )
       );
+      setShowSuggestions(true);
     } else {
       setShowSuggestions(false);
     }
@@ -49,9 +54,11 @@ const InputField = ({ commentKey, setIsCommentInputOpen }) => {
       return;
     }
 
+    // Add logic to handle image uploading if necessary
     const resData = await addComments(currentUser, commentKey, commentText);
     if (resData) {
-      dispatch(setComments(resData));
+      const filterData = sortComments(resData, activeSort);
+      dispatch(setComments(filterData));
       setCommentText("");
       setIsCommentInputOpen(false);
       enqueueSnackbar("Replied", { variant: "success" });
@@ -72,6 +79,17 @@ const InputField = ({ commentKey, setIsCommentInputOpen }) => {
       positionSuggestions();
     } else {
       setShowSuggestions(false);
+    }
+  };
+
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    if (file && file.type.startsWith("image/")) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setImage(reader.result);
+      };
+      reader.readAsDataURL(file);
     }
   };
 
@@ -135,6 +153,8 @@ const InputField = ({ commentKey, setIsCommentInputOpen }) => {
         onChange={handleTagging}
         onScroll={positionSuggestions}
       />
+      {image && <img src={image} alt="Selected" className="image-preview" />}
+
       {showSuggestions && (
         <div
           className="suggestions-list"
@@ -151,6 +171,7 @@ const InputField = ({ commentKey, setIsCommentInputOpen }) => {
           ))}
         </div>
       )}
+
       <div className="input-actions">
         <hr />
         <div className="actions">
@@ -166,6 +187,12 @@ const InputField = ({ commentKey, setIsCommentInputOpen }) => {
             </div>
           </div>
           <div className="btns">
+            <input
+              type="file"
+              accept="image/*"
+              onChange={handleImageChange}
+              className="image-upload-input"
+            />
             <button
               className="cancel-btn"
               onClick={() => setIsCommentInputOpen(false)}
